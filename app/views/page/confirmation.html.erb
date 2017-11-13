@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=devidev-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>AIT Homechefs</title>
+
+  <!-- [ FONT-AWESOME ICON ]
+        =========================================================================================================================-->
+  <link rel="stylesheet" type="text/css" href="library/font-awesome-4.3.0/css/font-awesome.min.css">
+
+  <!-- [ PLUGIN STYLESHEET ]
+        =========================================================================================================================-->
+  <link rel="shortcut icon" type="image/x-icon" href="images/icon.png">
+  <link rel="stylesheet" type="text/css" href="css/animate.css">
+  <link rel="stylesheet" type="text/css" href="css/owl.carousel.css">
+  <link rel="stylesheet" type="text/css" href="css/owl.theme.css">
+  <link rel="stylesheet" type="text/css" href="css/magnific-popup.css">
+
+  <!-- TABLE CSS ==========================-->
+  <%= stylesheet_link_tag "table" %>
+  <!-- [ Boot STYLESHEET ]
+        =========================================================================================================================-->
+  <link rel="stylesheet" type="text/css" href="library/bootstrap/css/bootstrap-theme.min.css">
+  <link rel="stylesheet" type="text/css" href="library/bootstrap/css/bootstrap.css">
+  <!-- [ DEFAULT STYLESHEET ]
+  =========================================================================================================================-->
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="stylesheet" type="text/css" href="css/responsive.css">
+  <link rel="stylesheet" type="text/css" href="css/color/rose.css">
+
+</head>
+<body style="background-image: url('https://d3ui957tjb5bqd.cloudfront.net/images/screenshots/products/10/106/106397/kbbn6c8xv6vshiuzkff7gz4t38b9lm42hbbbz66awuav5lonsvlciqfgixucmzbw-f.jpg?1399222055'); background-repeat: no-repeat; background-size: cover; margin-left: 3cm;" >
+<!-- [ LOADERs ]
+================================================================================================================================-->
+<!--<div class="preloader">
+  <div class="loader theme_background_color">
+    <span></span>
+
+  </div>
+</div> -->
+<!-- [ /PRELOADER ]
+=============================================================================================================================-->
+<!-- [WRAPPER ]
+=============================================================================================================================-->
+<div class="wrapper">
+  <!-- [NAV]
+ ============================================================================================================================-->
+  <!-- Navigation
+   ==========================================-->
+  <nav  class=" nim-menu navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <% if !user_signed_in?%>
+            <a class="navbar-brand" href="index.html"><%= image_tag "/images/#AIT Homechefs.png" %></a>
+        <% end%>
+        <% if user_signed_in?%>
+            <% if current_user.role.name=="Chef" %>
+                <a class="navbar-brand" href="index.html"><%= image_tag "/images/#IamCooking.png" %></a>
+            <% else if current_user.role.name=="Customer" %>
+                    <a class="navbar-brand" href="index.html"><%= image_tag "/images/#IamHungry.png" %></a>
+                <% end%>
+            <% end%>
+        <% end %>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#" class="page-scroll">About </a></li>
+          <li><a href="#" class="page-scroll">Contact us</a></li>
+          <% if user_signed_in?%>
+              <% if current_user.role.name=="Customer" %>
+                  <li><a href="/home/index" class="page-scroll">Home</a></li>
+                  <li><a href="/page/placeorder" class="page-scroll">Place Order</a></li>
+                  <li><a href="/page/myorders" class="page-scroll">My Orders</a></li>
+                  <li><p id="notice" class="page-scroll"><%= notice %></p></li>
+
+                  <li><a class="page-scroll" style="color: white">Welcome <%= current_user.email %>! Not you?</a></li>
+                  <li><a href="/users/sign_out" class="page-scroll">Sign Out</a></li>
+              <% end %>
+          <% end %>
+          <!-- CHEF =========================================================================================================== -->
+          <% if user_signed_in?%>
+              <% if current_user.role.name=="Chef" %>
+                  <li><a href="/home/index" class="page-scroll">Home</a></li>
+                  <li><a href="/page/personal" class="page-scroll">View Your Menu</a></li>
+                  <li><a href="/dishes/new" class="page-scroll">Cooking New Dish?</a></li>
+                  <li><a class="page-scroll" style="color: white">Welcome <%= current_user.email %>! Not you?</a></li>
+                  <li><a href="/users/sign_out" class="page-scroll">Sign Out</a></li>
+              <% end %>
+          <% end %>
+
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+
+
+  <!-- [/NAV]
+============================================================================================================================-->
+
+
+
+
+
+</div>
+
+
+<!-- [ /WRAPPER ]
+=============================================================================================================================-->
+
+<!-- [ DEFAULT SCRIPT ] -->
+
+<%= javascript_include_tag "modernizr.custom.97074.js"%>
+<%= javascript_include_tag "bootstrap.js"%>
+<%= javascript_include_tag "jquery.easing.1.3.js"%>
+<%= javascript_include_tag "vegas.min.js"%>
+<%= javascript_include_tag "plugins.js"%>
+<%= javascript_include_tag "typed.js"%>
+<%= javascript_include_tag "fappear.js"%>
+<%= javascript_include_tag "jquery.countTo.js"%>
+<%= javascript_include_tag "owl.carousel.js"%>
+<%= javascript_include_tag "jquery.magnific-popup.min.js"%>
+<%= javascript_include_tag "SmoothScroll.js"%>
+<%= javascript_include_tag "common.js"%>
+
+
+<!-- BODY========================================================================= -->
+
+<br/><br/>
+
+  <h2 style="background: -webkit-linear-gradient(left, #25c481, #25b7c4);
+      background: linear-gradient(to right, #25c481, #25b7c4);">Thank you.Your order has been placed</h2>
+
+<!-- [FOOTER]
+     ============================================================================================================================-->
+<br/><br/><br/>
+<footer class="site-footer section-spacing text-center " id="eight">
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <p class="footer-links"><a href="#">Terms of Use</a> <a href="#">Privacy Policy</a></p>
+      </div>
+      <div class="col-md-4"> <small>&copy; 2015 Kiriti Velivela & Ranjith Dontamsetti. All rights reserved.</small></div>
+      <div class="col-md-4">
+
+
+        <!--social end-->
+
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+<!-- [/FOOTER]
+============================================================================================================================-->
+
+
+</body>
+
+</html>
+
+
+
+
+
+
+

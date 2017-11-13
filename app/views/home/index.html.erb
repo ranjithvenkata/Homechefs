@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=devidev-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>AIT Homechefs</title>
+
+  <!-- [ FONT-AWESOME ICON ]
+        =========================================================================================================================-->
+
+
+  <!-- [ PLUGIN STYLESHEET ]
+        =========================================================================================================================
+  <link rel="shortcut icon" type="image/x-icon" href="images/icon.png">
+  <link rel="stylesheet" type="text/css" href="animate.css">
+  <link rel="stylesheet" type="text/css" href="owl.carousel.css">
+  <link rel="stylesheet" type="text/css" href="owl.theme.css">
+  <link rel="stylesheet" type="text/css" href="magnific-popup.css"> -->
+<%stylesheet_link_tag "animate.css" %>
+  <%stylesheet_link_tag "owl.carousel.css" %>
+  <%stylesheet_link_tag "owl.theme.css" %>
+  <%stylesheet_link_tag "magnific-popup.css" %>
+  <%stylesheet_link_tag "bootstrap-theme.min.css" %>
+  <%stylesheet_link_tag "bootstrap.css" %>
+  <%stylesheet_link_tag "style.css" %>
+  <%stylesheet_link_tag "responsive.css" %>
+  <%stylesheet_link_tag "rose.css" %>
+  <!-- TABLE CSS ==========================-->
+  <!-- [ Boot STYLESHEET ]
+        =========================================================================================================================
+  <link rel="stylesheet" type="text/css" href="bootstrap-theme.min.css">
+  <link rel="stylesheet" type="text/css" href="bootstrap.css">  -->
+  <!-- [ DEFAULT STYLESHEET ]
+  =========================================================================================================================
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" type="text/css" href="responsive.css">
+  <link rel="stylesheet" type="text/css" href="rose.css"> -->
+
+</head>
+<body style="background-image: url('https://d3ui957tjb5bqd.cloudfront.net/images/screenshots/products/10/106/106397/kbbn6c8xv6vshiuzkff7gz4t38b9lm42hbbbz66awuav5lonsvlciqfgixucmzbw-f.jpg?1399222055'); background-repeat: no-repeat; background-size: cover; margin-left: 3cm; opacity: 1000">
+<!-- [ LOADERs ]
+================================================================================================================================-->
+<!--<div class="preloader">
+  <div class="loader theme_background_color">
+    <span></span>
+
+  </div>
+</div> -->
+<!-- [ /PRELOADER ]
+=============================================================================================================================-->
+<!-- [WRAPPER ]
+=============================================================================================================================-->
+<div class="wrapper">
+  <!-- [NAV]
+ ============================================================================================================================-->
+  <!-- Navigation
+   ==========================================-->
+  <nav  class=" nim-menu navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <% if !user_signed_in?%>
+        <a class="navbar-brand" href="index.html">#AIT Homechefs</a>
+        <% end%>
+            <% if user_signed_in?%>
+            <% if current_user.role.name=="Chef" %>
+        <a class="navbar-brand" href="index.html">#IamCooking</a>
+                <% else if current_user.role.name=="Customer" %>
+                    <a class="navbar-brand" href="index.html">#IamHungry</a>
+      <% end%>
+        <% end%>
+            <% end %>
+                </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#" class="page-scroll">About </a></li>
+          <li><a href="#" class="page-scroll">Contact us</a></li>
+          <% if user_signed_in?%>
+              <% if current_user.role.name=="Customer" %>
+          <li><a href="/home/index" class="page-scroll">Home</a></li>
+          <li><a href="/page/placeorder" class="page-scroll">Place Order</a></li>
+          <li><a href="/page/myorders" class="page-scroll">My Orders</a></li>
+          <li><p id="notice" class="page-scroll"></p></li>
+
+          <li><a class="page-scroll" style="color: white">Welcome <%= current_user.email %>! Not you?</a></li>
+          <li><a href="/users/sign_out" class="page-scroll">Sign Out</a></li>
+          <% end %>
+              <% end %>
+          <!-- CHEF =========================================================================================================== -->
+          <% if user_signed_in?%>
+              <% if current_user.role.name=="Chef" %>
+              <li><a href="/home/index" class="page-scroll">Home</a></li>
+                  <li><a href="/page/personal" class="page-scroll">View Your Menu</a></li>
+                  <li><a href="/dishes/new" class="page-scroll">Cooking New Dish?</a></li>
+              <li><a class="page-scroll" style="color: white">Welcome <%= current_user.email %>! Not you?</a></li>
+              <li><a href="/users/sign_out" class="page-scroll">Sign Out</a></li>
+          <% end %>
+              <% end %>
+
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+
+
+  <!-- [/NAV]
+============================================================================================================================-->
+  <% if !user_signed_in?%>
+  <!-- [/MAIN-HEADING]
+============================================================================================================================-->
+  <section class="main-heading" id="home">
+    <div class="overlay">
+      <div class="container">
+        <div class="row">
+          <div class="main-heading-content col-md-12 col-sm-12 text-center">
+            <h1 class="main-heading-title"><span class="main-element themecolor" data-elements="We Love To Cook,We Love To Eat,Then Why Not Share?"></span></h1>
+            <p class="main-heading-text">Happiness is only real when Shared...</p>
+
+            <div class="btn-bar">
+              <a href="/users/sign_up" class="btn btn-custom theme_background_color">Get Started</a>
+              <a href="/users/sign_in" class="btn btn-custom-outline">Sign In</a>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- [/MAIN-HEADING]
+  ============================================================================================================================-->
+
+
+  <!-- [CONTACT]
+  ============================================================================================================================-->
+  <!--sub-form-->
+  <section class="sub-form text-center" id="eight">
+    <div class="container">
+      <div class="col-md-12">
+        <h3 class="title"><span class="themecolor">Write to Us </span></h3>
+        <p class="lead">We will be very much delighted to hear from you and move ahead.</p>
+      </div>
+      <div class="row">
+        <div class="col-md-3 col-sm-3"></div>
+        <div class="col-md-6 center-block col-sm-6 ">
+          <form id="mc-form">
+            <div class="input-group">
+              <input type="email" class="form-control" placeholder="Email Address" required id="mc-email">
+              <span class="input-group-btn">
+            <button type="submit" class="btn btn-default">Mail Us <i class="fa fa-envelope"></i> </button>
+            </span> </div>
+            <label for="mc-email" id="mc-notification"></label>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--sub-form end-->
+
+
+
+  <!-- [/CONTACT]
+  ============================================================================================================================-->
+
+
+  <!-- [FOOTER]
+  ============================================================================================================================-->
+
+  <footer class="site-footer section-spacing text-center " id="eight">
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <p class="footer-links"><a href="#">Terms of Use</a> <a href="#">Privacy Policy</a></p>
+        </div>
+        <div class="col-md-4"> <small>&copy; 2016 Kiriti Velivela & Ranjith Dontamsetti. All rights reserved.</small></div>
+        <div class="col-md-4">
+          <!--social-->
+
+
+
+          <!--social end-->
+
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+
+  <!-- [/FOOTER]
+  ============================================================================================================================-->
+
+
+
+</div>
+
+<%end %>
+<!-- [ /WRAPPER ]
+=============================================================================================================================-->
+
+<!-- [ DEFAULT SCRIPT ] -->
+
+<%= javascript_include_tag "modernizr.custom.97074.js"%>
+<%= javascript_include_tag "bootstrap.js"%>
+<%= javascript_include_tag "jquery.easing.1.3.js"%>
+<%= javascript_include_tag "vegas.min.js"%>
+<%= javascript_include_tag "plugins.js"%>
+<%= javascript_include_tag "typed.js"%>
+<%= javascript_include_tag "fappear.js"%>
+<%= javascript_include_tag "jquery.countTo.js"%>
+<%= javascript_include_tag "owl.carousel.js"%>
+<%= javascript_include_tag "jquery.magnific-popup.min.js"%>
+<%= javascript_include_tag "SmoothScroll.js"%>
+<%= javascript_include_tag "common.js"%>
+
+
+<!-- BODY========================================================================= -->
+  <!-- CUSTOMER================================================================ -->
+<% if user_signed_in? %>
+
+    <% if current_user.role.name=="Customer" %>
+          <br/><br/>
+          <h2 class="title" style="background-color: whitesmoke">Select an <span class="themecolor">Option:</span></h2><br/>
+          <div class="container">
+            <div class="col-md-12">
+
+            </div><br/><br/>
+
+
+
+
+            <div class="col-md-6" >
+              <%= form_tag('/home/change') do %>
+                  <label class="radiochange" > <input type="radio" name="role" value ="2" style="visibility: hidden" onchange="this.form.submit();">
+                    <%= image_tag "orderfoodaccept.jpg", height: '500', width: '500' %></label>
+
+
+
+                  </div> <!-- /portfolio-item -->
+
+                  <div class="col-md-6">
+
+
+                    <label class="radiochange"> <input type="radio" name="role" value ="3" style="visibility: hidden" onchange="this.form.submit();">
+                      <%= image_tag "cook.jpg", height: '500', width: '500'%></label>
+                    <td><input type="submit" value="role" hidden ></td>
+              <% end %>
+
+
+
+
+
+
+
+              </div>
+              </div><!-- /container -->
+          <br/>
+
+
+
+        <table style="background: -webkit-linear-gradient(left, #25c481, #25b7c4);
+            background: linear-gradient(to right, #25c481, #25b7c4);">
+          <thead>
+          <th colspan="8"><h2 >Your Details:</h2 ></th>
+          <tr>
+            <th>Customer name</th>
+            <th>Address</th>
+            <th colspan="3"></th>
+          </tr>
+          </thead>
+
+          <tbody>
+
+          <tr>
+            <td><%= current_user.name %></td>
+            <td><%= current_user.address %></td>
+            <td> </td>
+
+          </tr>
+
+          </tbody>
+        </table>
+    <%end%>
+
+      <!-- CHEF======================================================================= -->
+
+    <% if current_user.role.name=="Chef" %>
+
+          <br/><br/>
+
+
+
+          <!-- Radio==============================================================================================-->
+          <h2 class="title" style="background-color: whitesmoke">Select an <span class="themecolor">Option:</span></h2><br/><br/>
+          <div class="container">
+
+          <div class="col-md-12">
+
+                </div>
+
+
+
+
+                <div class="col-md-6" >
+                    <%= form_tag('/home/change') do %>
+                        <label class="radiochange" > <input type="radio" name="role" value ="2" style="visibility: hidden" onchange="this.form.submit();">
+                          <%= image_tag "orderfood.jpg", height: '500', width: '500' %></label>
+
+
+
+                        </div> <!-- /portfolio-item -->
+
+                        <div class="col-md-6">
+
+
+                            <label class="radiochange"> <input type="radio" name="role" value ="3" style="visibility: hidden" onchange="this.form.submit();">
+                              <%= image_tag "cookaccept.jpg", height: '500', width: '500'%></label>
+                            <td><input type="submit" value="role" hidden></td>
+                    <% end %>
+
+
+
+
+
+
+
+            </div>
+                  </div><!-- /container -->
+          <br/>
+<!--Your orders==================================================================================================================================================== -->
+
+          <table style="background: -webkit-linear-gradient(left, #25c481, #25b7c4);
+              background: linear-gradient(to right, #25c481, #25b7c4);">
+
+            <thead>
+            <th colspan="8"><h2 >Your Orders for the day:</h2 ></th>
+            <tr>
+
+              <th>Dish name</th>
+              <th>Ready by</th>
+              <th>Price</th>
+              <th>Quantity</th>
+              <th>Customer Name</th>
+              <th colspan="3"></th>
+            </tr>
+            </thead>
+
+            <tbody>
+
+            <% @orders.each do |order| %>
+                <tr>
+
+                  <td><%= order.dish.dish_name %></td>
+                  <td><%= order.dish.ready_by %></td>
+                  <td><%= order.dish.price %></td>
+                  <td><%= order.quantity %></td>
+                  <td><%= order.user.name %></td>
+                  <td></td>
+
+
+                </tr><% end %>
+
+            </tbody>
+          </table><br/>
+
+          <!--YOUR DETAILS ==================================================================================================================================================== -->
+
+
+          <table style="background: -webkit-linear-gradient(left, #25c481, #25b7c4);
+            background: linear-gradient(to right, #25c481, #25b7c4);">
+          <thead>
+          <th colspan="8"><h2 >Your Details:</h2 ></th>
+          <tr>
+            <th>Chef name</th>
+            <th>Address</th>
+            <th>Status</th>
+            <th colspan="3"></th>
+          </tr>
+          </thead>
+
+          <tbody>
+
+          <tr>
+            <td><%= current_user.name %></td>
+            <td><%= current_user.address %></td>
+
+            <td><%=current_user.email%> </td><br/>
+
+          </tr>
+
+
+
+
+        </table>
+          <!--STATUS=========================================================================================================================================== -->
+          <%= form_tag('/home/statuses') do -%>
+              <div> <input type="radio" name="status" value ="1"> Available</div>
+              <div> <input type="radio" name="status" value ="2">Not available</div>
+              <input type="submit" value="status" ></td>
+          <% end %>
+
+
+          <!--STATUS============================================================================================================================================== -->
+    <%end%>
+<% end %>
+  <div>
+    <p> </p>
+      </div>
+
+
+</body>
+
+</html>
+
+
+

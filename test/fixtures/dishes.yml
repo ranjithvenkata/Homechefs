@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  dish_name: MyString
+  time_of_last_order: 2016-10-09 20:50:59
+  maxOrder: 1
+  price: 9.99
+
+two:
+  user: two
+  dish_name: MyString
+  time_of_last_order: 2016-10-09 20:50:59
+  maxOrder: 1
+  price: 9.99
